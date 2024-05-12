@@ -448,7 +448,7 @@ boolean finishArmorySideQuest()
 	{
 		return false;
 	}
-	auto_log_info("finishing quest [Lending a Hand (and a Foot)]");
+	auto_log_info("Finishing quest [Lending a Hand (and a Foot)]");
 	visit_url("shop.php?whichshop=armory");
 	run_choice(2);		//give no-handed pie to finish the quest
 	return internalQuestStatus("questM25Armorer") > 4;
@@ -535,13 +535,13 @@ void considerGalaktikSubQuest()
 	
 	if(my_meat() < 100)
 	{
-		auto_log_info("We are so poor we cannot effectively restore anymore. Enabling Galaktik quest for this ascension", "red");
+		auto_log_info("We are so poor we cannot effectively restore anymore. Enabling Galaktik quest for this ascension.", "red");
 		set_property("auto_doGalaktik", true);
 		return;
 	}
 	if(my_meat() < meatReserve() + 100)
 	{
-		auto_log_info("Our meat reserves are far too low, we still need to save up some for quests. Enabling Galaktik quest for this ascension", "red");
+		auto_log_info("Our meat reserves are far too low, we still need to save up some for quests. Enabling Galaktik quest for this ascension.", "red");
 		set_property("auto_doGalaktik", true);
 		return;
 	}
@@ -669,7 +669,7 @@ void piratesCoveChoiceHandler(int choice) {
 			run_choice(1); // get stuffed shoulder parrot
 		}
 	} else {
-		abort("unhandled choice in piratesCoveChoiceHandler");
+		abort("Unhandled choice in piratesCoveChoiceHandler");
 	}
 }
 
@@ -781,7 +781,7 @@ boolean LX_joinPirateCrew() {
 		return false;
 	}
 	if (!possessOutfit("Swashbuckling Getup", true)) {
-		auto_log_info("Can not equip, or do not have the Swashbuckling Getup. Delaying.", "red");
+		auto_log_info("Cannot equip or do not have the Swashbuckling Getup. Delaying.", "red");
 		return false;
 	}
 	if (item_amount($item[The Big Book Of Pirate Insults]) == 0 && my_meat() > npc_price($item[The Big Book Of Pirate Insults])) {
@@ -832,7 +832,7 @@ boolean LX_joinPirateCrew() {
 			if (!infiltrationReady) {
 				if (item_amount($item[hot wing]) > 2 && auto_can_equip($item[frilly skirt])) {
 					if (knoll_available() && my_meat() > npc_price($item[frilly skirt])) {
-						auto_log_info("We have hot wings but no frilly skirt. Lets go shopping!", "blue");
+						auto_log_info("We have hot wings but no frilly skirt. Let's go shopping!", "blue");
 						auto_buyUpTo(1, $item[frilly skirt]);
 						autoForceEquip($item[frilly skirt]);
 						infiltrationReady = true;
@@ -842,7 +842,7 @@ boolean LX_joinPirateCrew() {
 							infiltrationReady = true;
 						}
 						else {
-							auto_log_info("We have hot wings but no frilly skirt. Lets go to the gym!", "blue");
+							auto_log_info("We have hot wings but no frilly skirt. Let's go to the gym!", "blue");
 							if (internalQuestStatus("questM01Untinker") == -1) {
 								visit_url("place.php?whichplace=forestvillage&preaction=screwquest&action=fv_untinker_quest");
 							}
@@ -881,7 +881,7 @@ boolean LX_joinPirateCrew() {
 			tryBeerPong();
 			return true;
 		} else {
-			auto_log_info("Insult gathering party.", "blue");
+			auto_log_info("Insult-gathering party.", "blue");
 			addToMaximize("-outfit Swashbuckling Getup");
 			// If we're wearing the pirate outfit already, autoAdv will fail to adventure
 			// in the cove since the zone isn't available unless we remove it (which wouldn't happen until auto_pre_adv runs)
@@ -947,7 +947,7 @@ void fcleChoiceHandler(int choice) {
 			}
 		}
 	} else {
-		abort("unhandled choice in fcleChoiceHandler");
+		abort("Unhandled choice in fcleChoiceHandler");
 	}
 }
 
@@ -988,7 +988,7 @@ boolean LX_unlockKnobMenagerie()
 			{
 				return true;
 			}
-			auto_log_warning("Unable to finish the King of Cobb's Knob Quest yet to obtain the Cobb's Knob lab key, so can't unlock the Menagerie.");
+			auto_log_warning("Unable to finish the King of Cobb's Knob Quest and obtain the Cobb's Knob lab key, so can't unlock the Menagerie.");
 			return false;
 		}
 	}
