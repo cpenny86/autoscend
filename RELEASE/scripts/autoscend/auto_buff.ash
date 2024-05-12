@@ -1077,7 +1077,7 @@ boolean auto_faceCheck(effect face)
 	}
 	else
 	{
-		auto_log_debug("Can not get " + face + " expression as we are already emoting.");
+		auto_log_debug("Cannot get " + face + " expression as we are already emoting.");
 		return false;
 	}
 
